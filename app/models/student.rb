@@ -19,7 +19,7 @@ class Student < ActiveRecord::Base
     if name.blank?
       Student.all
     else
-      Student.where('name LIKE ?','%name%')
+      Student.where('lower(name) LIKE ?','%'+name.downcase+'%')
     end
   end
 end
