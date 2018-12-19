@@ -16,10 +16,10 @@ class Student < ActiveRecord::Base
 
   def self.search(name)
     binding.pry
-    if !name.blank?
-      Student.where('name LIKE ?','%name%')
-    else
+    if name.blank?
       Student.all
+    else
+      Student.where('name LIKE ?','%name%')
     end
   end
 end
